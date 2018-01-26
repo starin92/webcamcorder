@@ -1,0 +1,211 @@
+<html>
+<body style="background: darkslategrey">
+
+<div>
+<button type="button" onclick="forceUrl(-1)">&lt</button>
+<button type="button" onclick="forceUrl(1)">&gt</button>
+</div>
+<form>
+  <div class="multiselect">
+    <div class="selectBox" onclick="showCheckboxes()">
+      <select>
+        <option>Select an option</option>
+      </select>
+      <div class="overSelect"></div>
+    </div>
+    <div id="checkboxes">
+<!--      <label for="one">
+        <input type="checkbox" id="one" />First checkbox</label>
+      <label for="two">
+        <input type="checkbox" id="two" />Second checkbox</label>
+      <label for="three">
+        <input type="checkbox" id="three" />Third checkbox</label>
+-->
+    </div>
+  </div>
+</form>
+<div>
+<img id="myIframe" style="max-width: 100%; height: auto;"></img>
+</div>
+</body>
+<style>
+.multiselect {
+  width: 200px;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+  font-weight: bold;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+  display: none;
+  border: 1px #dadada solid;
+}
+
+#checkboxes label {
+  display: block;
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
+}
+</style>
+<script>
+
+</script>
+<script>
+urls = [
+{ 'on' : true, 'url' : 'green.png' },
+{ 'on' : true, 'url' : 'blue.png' },
+{ 'on' : true, 'url' : 'red.png' }
+]
+//{ 'on' : true, 'url' : 'http://pixelcaster.com/yosemite/webcams/sentinel.jpg' },
+//{ 'on' : true, 'url' : 'http://pixelcaster.com/yosemite/webcams/turtleback.jpg' },
+//{ 'on' : true, 'url' : 'http://pixelcaster.com/yosemite/webcams/ahwahnee2.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nps.gov/webcams-glac/logan1.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nps.gov/webcams-glac/logan2.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nps.gov/webcams-glac/aplocam.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nps.gov/webcams-glac/ghcam.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nps.gov/webcams-glac/tmcam.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nps.gov/webcams-glac/smcam.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nps.gov/webcams-glac/mgcam.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nps.gov/webcams-glac/mcdcam1.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nps.gov/webcams-romo/alpine_visitor_center.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nps.gov/webcams-romo/longs_peak.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nps.gov/webcams-romo/glacier_basin.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nps.gov/webcams-olym/current_ridgecam.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nature.nps.gov/air/WebCams/parks/porecam/porelarge.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nature.nps.gov/air/WebCams/parks/grcacam/grcalarge.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nature.nps.gov/air/webcams/parks/grsmcam/grsmlarge.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nature.nps.gov/air/webcams/parks/grsmpkcam/grpklarge.jpg' },
+////{ 'on' : true, 'url' : //'https://www.nature.nps.gov/air/WebCams/parks/denacam/denalarge.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nps.gov/webcams-yell/oldfaithvc.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nps.gov/webcams-yell/mammoth3.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nps.gov/webcams-yell/mtwashburn.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nps.gov/webcams-yell/washburn2.jpg' },
+//{ 'on' : true, 'url' : 'http://www.americanalpineclub.org.php56-21.dfw3-2.websitetestlink.com/images/gtcr_webcam/webcam.jpg' },
+//{ 'on' : true, 'url' : 'https://hvo.wr.usgs.gov/cams/KIcam/images/M.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nps.gov/webcams-hale/HaleSummitCamCrater.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nature.nps.gov/air/webcams/parks/throcam/throlarge.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nature.nps.gov/air/webcams/parks/nocacam/nocalarge.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nature.nps.gov/air/WebCams/parks/jotrcam/jotrlarge.jpg' },
+//{ 'on' : true, 'url' : 'https://www.nature.nps.gov/air/webcams/parks/shencam/shenlarge.jpg' },
+////{ 'on' : true, 'url' : //'http://www.xanterra.net/cratercam/cam_2.jpg' },
+////{ 'on' : true, 'url' : //'https://avo.alaska.edu/webcam/cleveland_clco.jpg' },
+//{ 'on' : true, 'url' : 'https://avo.alaska.edu/webcam/redoubt.jpg' },
+//{ 'on' : true, 'url' : 'https://avo.alaska.edu/webcam/a-spurr.jpg' },
+//{ 'on' : true, 'url' : 'http://axis-accc8e55d948.axiscam.net:9080/axis-cgi/jpg/image.cgi' },
+//{ 'on' : true, 'url' : 'http://rammb.cira.colostate.edu/ramsdis/online/images/latest_hi_res/himawari-8/full_disk_ahi_true_color.jpg' }
+//]
+var INTERVAL_TIME = 60
+var CURRENT_URL = 0
+var timeoutId; 
+
+var expanded = false;
+
+// start point
+for(var idx in urls){
+  console.log(urls[idx].url)
+  addUrl(urls[idx].url, idx)
+}
+addInput()
+
+doRefresh(0)
+
+function showCheckboxes() {
+  var checkboxes = document.getElementById("checkboxes");
+  if (!expanded) {
+    checkboxes.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxes.style.display = "none";
+    expanded = false;
+  }
+}
+
+function doRefresh(jump)
+{		
+  if(jump===undefined) jump=1
+  
+  while(jump!=0){
+    if(jump<0){
+      nextIdx = CURRENT_URL - 1
+      if(nextIdx<0) nextIdx = urls.length - 1
+      if(urls[nextIdx].on == true) jump++
+      CURRENT_URL = nextIdx
+    } else if(jump>0){
+      nextIdx = CURRENT_URL + 1
+      if(nextIdx==urls.length) nextIdx = 0
+      if(urls[nextIdx].on == true) jump--
+      CURRENT_URL = nextIdx
+    }
+  }
+
+  console.log(urls[CURRENT_URL].url)
+  document.getElementById('myIframe').src=urls[CURRENT_URL].url
+  //Append a unique query string to avoid cached image
+  +"?"+String((new Date).getTime());
+  //TODO: make time configurable
+  //refresh agian in a minute
+  timeoutId = setTimeout( "doRefresh()", INTERVAL_TIME*1000 );
+}
+
+function forceUrl(jump)
+{
+  clearTimeout(timeoutId); 
+  doRefresh(jump)
+}
+
+function toggleUrl(idx){
+  cb = document.getElementById('checkBox'+idx)
+  urls[idx].on = !urls[idx].on
+  //show a new url if they deactivated the current one
+  if(idx==CURRENT_URL){
+    forceUrl(1)
+  }
+}
+
+function addUrl(url, idx) {
+
+  var addList = document.getElementById('checkboxes');
+  var docstyle = addList.style.display;
+  if (docstyle == 'none') addList.style.display = '';
+
+  var text = document.createElement('div');
+  text.id = 'additem_' + idx;
+  text.innerHTML = "<label for='test'><input type='checkbox' id='checkBox"+idx+"' checked=true onclick='toggleUrl("+idx+")'/>" + url + "</label>"
+
+  addList.appendChild(text);
+}
+
+function addInput(id) {
+  addid = 0;
+
+  var addList = document.getElementById('checkboxes');
+  var docstyle = addList.style.display;
+  if (docstyle == 'none') addList.style.display = '';
+
+  addid++;
+
+  var text = document.createElement('div');
+  text.id = 'addUrl' + addid;
+  text.innerHTML = "<input type='text' value='' class='buckinput' name='items[]' style='padding:5px;' /> <a href='javascript:void(0);' onclick='addInput(" + addid + ")' id='addlink_" + addid + "'>add more</a>";
+
+  addList.appendChild(text);
+}
+
+</script>
+</html>
