@@ -171,6 +171,7 @@ function forceUrl(jump)
 
 function toggleUrl(idx){
   cb = document.getElementById('checkBox'+idx)
+  cb.checked = !cb.checked
   ALL_URLS[idx].on = !ALL_URLS[idx].on
   //show a new url if they deactivated the current one
   if(idx==CURRENT_URL){
@@ -185,8 +186,11 @@ function addTextBox(alias, idx) {
   if (docstyle == 'none') addList.style.display = '';
 
   var text = document.createElement('div');
+  text.onclick = function(){ toggleUrl(idx) }
   text.id = 'additem_' + idx;
-  text.innerHTML = "<label for='test'><input type='checkbox' id='checkBox"+idx+"' checked=true onclick='toggleUrl("+idx+")'/>" + alias + "</label>"
+  //TODO: disable default checkbox functionality properly
+  // disabling default checkbox behavior since the parent onclick will handle it
+  text.innerHTML = "<label for='test'><input type='checkbox' id='checkBox"+idx+"' checked=true onclick='this.checked=!this.checked'/>" + alias + "</label>"
 
   addList.appendChild(text);
 }
