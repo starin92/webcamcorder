@@ -9,7 +9,7 @@
   <div class="multiselect">
     <div class="selectBox" onclick="showCheckboxes()">
       <select>
-        <option>Select an option</option>
+        <option>select images</option>
       </select>
       <div class="overSelect"></div>
     </div>
@@ -30,7 +30,7 @@
 </body>
 <style>
 .multiselect {
-  width: 200px;
+  width: 220px;
 }
 
 .selectBox {
@@ -68,47 +68,49 @@
 </script>
 <script>
 ALL_URLS = [
-{ 'on' : true, 'alias' : 'green', 'url' : 'green.png' },
-{ 'on' : true, 'alias' : 'blue', 'url' : 'blue.png' },
-{ 'on' : true, 'alias' : 'red', 'url' : 'red.png' }
+{ 'on' : true, 'alias' : 'sentinel', 'url' : 'http://pixelcaster.com/yosemite/webcams/sentinel.jpg' },
+{ 'on' : true, 'alias' : 'turtleback', 'url' : 'http://pixelcaster.com/yosemite/webcams/turtleback.jpg' },
+{ 'on' : true, 'alias' : 'ahwahnee', 'url' : 'http://pixelcaster.com/yosemite/webcams/ahwahnee2.jpg' },
+{ 'on' : true, 'alias' : 'logan1', 'url' : 'https://www.nps.gov/webcams-glac/logan1.jpg' },
+{ 'on' : true, 'alias' : 'logan2', 'url' : 'https://www.nps.gov/webcams-glac/logan2.jpg' },
+{ 'on' : true, 'alias' : 'aplo', 'url' : 'https://www.nps.gov/webcams-glac/aplocam.jpg' },
+{ 'on' : true, 'alias' : 'ghcam', 'url' : 'https://www.nps.gov/webcams-glac/ghcam.jpg' },
+{ 'on' : true, 'alias' : 'tmcam', 'url' : 'https://www.nps.gov/webcams-glac/tmcam.jpg' },
+{ 'on' : true, 'alias' : 'smcam', 'url' : 'https://www.nps.gov/webcams-glac/smcam.jpg' },
+{ 'on' : true, 'alias' : 'mgcam', 'url' : 'https://www.nps.gov/webcams-glac/mgcam.jpg' },
+{ 'on' : true, 'alias' : 'mcdcam1', 'url' : 'https://www.nps.gov/webcams-glac/mcdcam1.jpg' },
+{ 'on' : true, 'alias' : 'alpine_visitor_center', 'url' : 'https://www.nps.gov/webcams-romo/alpine_visitor_center.jpg' },
+{ 'on' : true, 'alias' : 'longs_peak', 'url' : 'https://www.nps.gov/webcams-romo/longs_peak.jpg' },
+{ 'on' : true, 'alias' : 'glacier_basin', 'url' : 'https://www.nps.gov/webcams-romo/glacier_basin.jpg' },
+{ 'on' : true, 'alias' : 'current_ridgecam', 'url' : 'https://www.nps.gov/webcams-olym/current_ridgecam.jpg' },
+{ 'on' : true, 'alias' : 'porelarge', 'url' : 'https://www.nature.nps.gov/air/WebCams/parks/porecam/porelarge.jpg' },
+{ 'on' : true, 'alias' : 'grcalarge', 'url' : 'https://www.nature.nps.gov/air/WebCams/parks/grcacam/grcalarge.jpg' },
+{ 'on' : true, 'alias' : 'grsmlarge', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/grsmcam/grsmlarge.jpg' },
+{ 'on' : true, 'alias' : 'grpklarge', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/grsmpkcam/grpklarge.jpg' },
+{ 'on' : false, 'alias' : 'denali', 'url' : 'https://www.nature.nps.gov/air/WebCams/parks/denacam/denalarge.jpg' },
+{ 'on' : true, 'alias' : 'oldfaithvc', 'url' : 'https://www.nps.gov/webcams-yell/oldfaithvc.jpg' },
+{ 'on' : true, 'alias' : 'mammoth3', 'url' : 'https://www.nps.gov/webcams-yell/mammoth3.jpg' },
+{ 'on' : true, 'alias' : 'mtwashburn', 'url' : 'https://www.nps.gov/webcams-yell/mtwashburn.jpg' },
+{ 'on' : true, 'alias' : 'washburn2', 'url' : 'https://www.nps.gov/webcams-yell/washburn2.jpg' },
+{ 'on' : true, 'alias' : 'webcam', 'url' : 'http://www.americanalpineclub.org.php56-21.dfw3-2.websitetestlink.com/images/gtcr_webcam/webcam.jpg' },
+{ 'on' : true, 'alias' : 'Kilaea', 'url' : 'https://hvo.wr.usgs.gov/cams/KIcam/images/M.jpg' },
+{ 'on' : true, 'alias' : 'HaleSummitCamCrater', 'url' : 'https://www.nps.gov/webcams-hale/HaleSummitCamCrater.jpg' },
+{ 'on' : true, 'alias' : 'throlarge', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/throcam/throlarge.jpg' },
+{ 'on' : true, 'alias' : 'nocalarge', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/nocacam/nocalarge.jpg' },
+{ 'on' : true, 'alias' : 'jotrlarge', 'url' : 'https://www.nature.nps.gov/air/WebCams/parks/jotrcam/jotrlarge.jpg' },
+{ 'on' : true, 'alias' : 'shenlarge', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/shencam/shenlarge.jpg' },
+{ 'on' : true, 'alias' : 'cam_2', 'url' : 'http://www.xanterra.net/cratercam/cam_2.jpg' },
+{ 'on' : true, 'alias' : 'cleveland_clco', 'url' : 'https://avo.alaska.edu/webcam/cleveland_clco.jpg' },
+{ 'on' : true, 'alias' : 'redoubt', 'url' : 'https://avo.alaska.edu/webcam/redoubt.jpg' },
+{ 'on' : true, 'alias' : 'spurr', 'url' : 'https://avo.alaska.edu/webcam/a-spurr.jpg' },
+{ 'on' : true, 'alias' : 'cgi', 'url' : 'http://axis-accc8e55d948.axiscam.net:9080/axis-cgi/jpg/image.cgi' },
+{ 'on' : true, 'alias' : 'Himawari', 'url' : 'http://rammb.cira.colostate.edu/ramsdis/online/images/latest_hi_res/himawari-8/full_disk_ahi_true_color.jpg' }
 ]
-//{ 'on' : true, 'alias' : 'sentinel', 'url' : 'http://pixelcaster.com/yosemite/webcams/sentinel.jpg' },
-//{ 'on' : true, 'alias' : 'turtleback', 'url' : 'http://pixelcaster.com/yosemite/webcams/turtleback.jpg' },
-//{ 'on' : true, 'alias' : 'ahwahnee', 'url' : 'http://pixelcaster.com/yosemite/webcams/ahwahnee2.jpg' },
-//{ 'on' : true, 'alias' : 'logan1', 'url' : 'https://www.nps.gov/webcams-glac/logan1.jpg' },
-//{ 'on' : true, 'alias' : 'logan2', 'url' : 'https://www.nps.gov/webcams-glac/logan2.jpg' },
-//{ 'on' : true, 'alias' : 'aplo', 'url' : 'https://www.nps.gov/webcams-glac/aplocam.jpg' },
-//{ 'on' : true, 'alias' : 'ghcam', 'url' : 'https://www.nps.gov/webcams-glac/ghcam.jpg' },
-//{ 'on' : true, 'alias' : 'tmcam', 'url' : 'https://www.nps.gov/webcams-glac/tmcam.jpg' },
-//{ 'on' : true, 'alias' : 'smcam', 'url' : 'https://www.nps.gov/webcams-glac/smcam.jpg' },
-//{ 'on' : true, 'alias' : 'mgcam', 'url' : 'https://www.nps.gov/webcams-glac/mgcam.jpg' },
-//{ 'on' : true, 'alias' : 'mcdcam1', 'url' : 'https://www.nps.gov/webcams-glac/mcdcam1.jpg' },
-//{ 'on' : true, 'alias' : 'alpine_visitor_center', 'url' : 'https://www.nps.gov/webcams-romo/alpine_visitor_center.jpg' },
-//{ 'on' : true, 'alias' : 'longs_peak', 'url' : 'https://www.nps.gov/webcams-romo/longs_peak.jpg' },
-//{ 'on' : true, 'alias' : 'glacier_basin', 'url' : 'https://www.nps.gov/webcams-romo/glacier_basin.jpg' },
-//{ 'on' : true, 'alias' : 'current_ridgecam', 'url' : 'https://www.nps.gov/webcams-olym/current_ridgecam.jpg' },
-//{ 'on' : true, 'alias' : 'porelarge', 'url' : 'https://www.nature.nps.gov/air/WebCams/parks/porecam/porelarge.jpg' },
-//{ 'on' : true, 'alias' : 'grcalarge', 'url' : 'https://www.nature.nps.gov/air/WebCams/parks/grcacam/grcalarge.jpg' },
-//{ 'on' : true, 'alias' : 'grsmlarge', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/grsmcam/grsmlarge.jpg' },
-//{ 'on' : true, 'alias' : 'grpklarge', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/grsmpkcam/grpklarge.jpg' },
-////{ 'on' : true'alias' : 'denalarge', , 'url' : //'https://www.nature.nps.gov/air/WebCams/parks/denacam/denalarge.jpg' },
-//{ 'on' : true, 'alias' : 'oldfaithvc', 'url' : 'https://www.nps.gov/webcams-yell/oldfaithvc.jpg' },
-//{ 'on' : true, 'alias' : 'mammoth3', 'url' : 'https://www.nps.gov/webcams-yell/mammoth3.jpg' },
-//{ 'on' : true, 'alias' : 'mtwashburn', 'url' : 'https://www.nps.gov/webcams-yell/mtwashburn.jpg' },
-//{ 'on' : true, 'alias' : 'washburn2', 'url' : 'https://www.nps.gov/webcams-yell/washburn2.jpg' },
-//{ 'on' : true, 'alias' : 'webcam', 'url' : 'http://www.americanalpineclub.org.php56-21.dfw3-2.websitetestlink.com/images/gtcr_webcam/webcam.jpg' },
-//{ 'on' : true, 'alias' : 'Kilaea', 'url' : 'https://hvo.wr.usgs.gov/cams/KIcam/images/M.jpg' },
-//{ 'on' : true, 'alias' : 'HaleSummitCamCrater', 'url' : 'https://www.nps.gov/webcams-hale/HaleSummitCamCrater.jpg' },
-//{ 'on' : true, 'alias' : 'throlarge', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/throcam/throlarge.jpg' },
-//{ 'on' : true, 'alias' : 'nocalarge', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/nocacam/nocalarge.jpg' },
-//{ 'on' : true, 'alias' : 'jotrlarge', 'url' : 'https://www.nature.nps.gov/air/WebCams/parks/jotrcam/jotrlarge.jpg' },
-//{ 'on' : true, 'alias' : 'shenlarge', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/shencam/shenlarge.jpg' },
-////{ 'on' : true'alias' : 'cam_2', , 'url' : //'http://www.xanterra.net/cratercam/cam_2.jpg' },
-////{ 'on' : true'alias' : 'cleveland_clco', , 'url' : //'https://avo.alaska.edu/webcam/cleveland_clco.jpg' },
-//{ 'on' : true, 'alias' : 'redoubt', 'url' : 'https://avo.alaska.edu/webcam/redoubt.jpg' },
-//{ 'on' : true, 'alias' : 'spurr', 'url' : 'https://avo.alaska.edu/webcam/a-spurr.jpg' },
-//{ 'on' : true, 'alias' : 'cgi', 'url' : 'http://axis-accc8e55d948.axiscam.net:9080/axis-cgi/jpg/image.cgi' },
-//{ 'on' : true, 'alias' : 'full_disk_ahi_true_color', 'url' : 'http://rammb.cira.colostate.edu/ramsdis/online/images/latest_hi_res/himawari-8/full_disk_ahi_true_color.jpg' }
+//Testing images 
+//ALL_URLS = [
+//{ 'on' : true, 'alias' : 'green', 'url' : 'green.png' },
+//{ 'on' : true, 'alias' : 'blue', 'url' : 'blue.png' },
+//{ 'on' : true, 'alias' : 'red', 'url' : 'red.png' }
 //]
 var INTERVAL_TIME = 60
 var CURRENT_URL = 0
@@ -121,7 +123,8 @@ for(var idx in ALL_URLS){
   console.log(ALL_URLS[idx].url)
   addTextBox(ALL_URLS[idx].alias, idx)
 }
-addInput()
+//TODO: allow user to add webcams
+//addInput()
 
 doRefresh(0)
 
@@ -138,6 +141,8 @@ function showCheckboxes() {
 
 function doRefresh(jump)
 {		
+  document.getElementById('additem_'+CURRENT_URL).style.color = 'black'
+
   if(jump===undefined) jump=1
   
   while(jump!=0){
@@ -155,12 +160,13 @@ function doRefresh(jump)
   }
 
   console.log(ALL_URLS[CURRENT_URL].url)
+  document.getElementById('additem_'+CURRENT_URL).style.color = 'blue'
   document.getElementById('myIframe').src=ALL_URLS[CURRENT_URL].url
   //Append a unique query string to avoid cached image
   +"?"+String((new Date).getTime());
   //TODO: make time configurable
   //refresh agian in a minute
-  timeoutId = setTimeout( "doRefresh()", INTERVAL_TIME*1000 );
+  timeoutId = setTimeout( "doRefresh()", INTERVAL_TIME*1000);
 }
 
 function forceUrl(jump)
@@ -206,7 +212,7 @@ function addInput(id) {
 
   var text = document.createElement('div');
   text.id = 'addUrl' + addid;
-  text.innerHTML = "<input type='text' value='' class='buckinput' name='items[]' style='padding:5px;' /> <a href='javascript:void(0);' onclick='addInput(" + addid + ")' id='addlink_" + addid + "'>add more</a>";
+  text.innerHTML = "<input type='text' value='' class='buckinput' name='items[]' style='padding:5px;' /> <a href='javascript:void(0);' onclick='alert("new")' id='addlink_" + addid + "'>add more</a>";
 
   addList.appendChild(text);
 }
