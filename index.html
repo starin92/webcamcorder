@@ -1,32 +1,26 @@
 <html>
-<body style="background: darkslategrey">
+<body style="background: darkslategrey padding:0; margin:0">
+
+<img id="myImg" style="width:100%; height:100%; object-fit: cover;"></img>
 
 <div>
 <button type="button" onclick="forceUrl(-1)">&lt</button>
 <button type="button" onclick="forceUrl(1)">&gt</button>
 </div>
+
 <form>
   <div class="multiselect">
     <div class="selectBox" onclick="showCheckboxes()">
       <select>
-        <option>select images</option>
+        <option>manage images</option>
       </select>
       <div class="overSelect"></div>
     </div>
     <div id="checkboxes">
-<!--      <label for="one">
-        <input type="checkbox" id="one" />First checkbox</label>
-      <label for="two">
-        <input type="checkbox" id="two" />Second checkbox</label>
-      <label for="three">
-        <input type="checkbox" id="three" />Third checkbox</label>
--->
     </div>
   </div>
 </form>
-<div>
-<img id="myIframe" style="max-width: 100%; height: auto;"></img>
-</div>
+
 </body>
 <style>
 .multiselect {
@@ -68,42 +62,43 @@
 </script>
 <script>
 ALL_URLS = [
-{ 'on' : true, 'alias' : 'sentinel', 'url' : 'http://pixelcaster.com/yosemite/webcams/sentinel.jpg' },
-{ 'on' : true, 'alias' : 'turtleback', 'url' : 'http://pixelcaster.com/yosemite/webcams/turtleback.jpg' },
-{ 'on' : true, 'alias' : 'ahwahnee', 'url' : 'http://pixelcaster.com/yosemite/webcams/ahwahnee2.jpg' },
-{ 'on' : true, 'alias' : 'logan1', 'url' : 'https://www.nps.gov/webcams-glac/logan1.jpg' },
-{ 'on' : true, 'alias' : 'logan2', 'url' : 'https://www.nps.gov/webcams-glac/logan2.jpg' },
-{ 'on' : true, 'alias' : 'aplo', 'url' : 'https://www.nps.gov/webcams-glac/aplocam.jpg' },
-{ 'on' : true, 'alias' : 'ghcam', 'url' : 'https://www.nps.gov/webcams-glac/ghcam.jpg' },
-{ 'on' : true, 'alias' : 'tmcam', 'url' : 'https://www.nps.gov/webcams-glac/tmcam.jpg' },
-{ 'on' : true, 'alias' : 'smcam', 'url' : 'https://www.nps.gov/webcams-glac/smcam.jpg' },
-{ 'on' : true, 'alias' : 'mgcam', 'url' : 'https://www.nps.gov/webcams-glac/mgcam.jpg' },
-{ 'on' : true, 'alias' : 'mcdcam1', 'url' : 'https://www.nps.gov/webcams-glac/mcdcam1.jpg' },
-{ 'on' : true, 'alias' : 'alpine_visitor_center', 'url' : 'https://www.nps.gov/webcams-romo/alpine_visitor_center.jpg' },
-{ 'on' : true, 'alias' : 'longs_peak', 'url' : 'https://www.nps.gov/webcams-romo/longs_peak.jpg' },
-{ 'on' : true, 'alias' : 'glacier_basin', 'url' : 'https://www.nps.gov/webcams-romo/glacier_basin.jpg' },
-{ 'on' : true, 'alias' : 'current_ridgecam', 'url' : 'https://www.nps.gov/webcams-olym/current_ridgecam.jpg' },
-{ 'on' : true, 'alias' : 'porelarge', 'url' : 'https://www.nature.nps.gov/air/WebCams/parks/porecam/porelarge.jpg' },
-{ 'on' : true, 'alias' : 'grcalarge', 'url' : 'https://www.nature.nps.gov/air/WebCams/parks/grcacam/grcalarge.jpg' },
-{ 'on' : true, 'alias' : 'grsmlarge', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/grsmcam/grsmlarge.jpg' },
-{ 'on' : true, 'alias' : 'grpklarge', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/grsmpkcam/grpklarge.jpg' },
-{ 'on' : false, 'alias' : 'denali', 'url' : 'https://www.nature.nps.gov/air/WebCams/parks/denacam/denalarge.jpg' },
-{ 'on' : true, 'alias' : 'oldfaithvc', 'url' : 'https://www.nps.gov/webcams-yell/oldfaithvc.jpg' },
-{ 'on' : true, 'alias' : 'mammoth3', 'url' : 'https://www.nps.gov/webcams-yell/mammoth3.jpg' },
-{ 'on' : true, 'alias' : 'mtwashburn', 'url' : 'https://www.nps.gov/webcams-yell/mtwashburn.jpg' },
-{ 'on' : true, 'alias' : 'washburn2', 'url' : 'https://www.nps.gov/webcams-yell/washburn2.jpg' },
-{ 'on' : true, 'alias' : 'webcam', 'url' : 'http://www.americanalpineclub.org.php56-21.dfw3-2.websitetestlink.com/images/gtcr_webcam/webcam.jpg' },
-{ 'on' : true, 'alias' : 'Kilaea', 'url' : 'https://hvo.wr.usgs.gov/cams/KIcam/images/M.jpg' },
-{ 'on' : true, 'alias' : 'HaleSummitCamCrater', 'url' : 'https://www.nps.gov/webcams-hale/HaleSummitCamCrater.jpg' },
-{ 'on' : true, 'alias' : 'throlarge', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/throcam/throlarge.jpg' },
-{ 'on' : true, 'alias' : 'nocalarge', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/nocacam/nocalarge.jpg' },
-{ 'on' : true, 'alias' : 'jotrlarge', 'url' : 'https://www.nature.nps.gov/air/WebCams/parks/jotrcam/jotrlarge.jpg' },
-{ 'on' : true, 'alias' : 'shenlarge', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/shencam/shenlarge.jpg' },
-{ 'on' : true, 'alias' : 'cam_2', 'url' : 'http://www.xanterra.net/cratercam/cam_2.jpg' },
-{ 'on' : true, 'alias' : 'cleveland_clco', 'url' : 'https://avo.alaska.edu/webcam/cleveland_clco.jpg' },
-{ 'on' : true, 'alias' : 'redoubt', 'url' : 'https://avo.alaska.edu/webcam/redoubt.jpg' },
-{ 'on' : true, 'alias' : 'spurr', 'url' : 'https://avo.alaska.edu/webcam/a-spurr.jpg' },
-{ 'on' : true, 'alias' : 'cgi', 'url' : 'http://axis-accc8e55d948.axiscam.net:9080/axis-cgi/jpg/image.cgi' },
+{ 'on' : true, 'alias' : 'Sentinel Dome', 'url' : 'http://pixelcaster.com/yosemite/webcams/sentinel.jpg' },
+{ 'on' : true, 'alias' : 'Turtleback', 'url' : 'http://pixelcaster.com/yosemite/webcams/turtleback.jpg' },
+{ 'on' : true, 'alias' : 'Ahwahnee Meadow', 'url' : 'http://pixelcaster.com/yosemite/webcams/ahwahnee2.jpg' },
+{ 'on' : true, 'alias' : 'Yosemite Falls', 'url' : 'https://cs1.pixelcaster.com/yosemite/yosfalls.jpg' },
+{ 'on' : true, 'alias' : 'Logan E', 'url' : 'https://www.nps.gov/webcams-glac/logan1.jpg' },
+{ 'on' : true, 'alias' : 'Logan S', 'url' : 'https://www.nps.gov/webcams-glac/logan2.jpg' },
+{ 'on' : true, 'alias' : 'Apgar Lookout NE', 'url' : 'https://www.nps.gov/webcams-glac/aplocam.jpg' },
+{ 'on' : false, 'alias' : 'Goat Haunt', 'url' : 'https://www.nps.gov/webcams-glac/ghcam.jpg' },
+{ 'on' : true, 'alias' : 'Two Medicine', 'url' : 'https://www.nps.gov/webcams-glac/tmcam.jpg' },
+{ 'on' : true, 'alias' : 'St. Mary VC', 'url' : 'https://www.nps.gov/webcams-glac/smcam.jpg' },
+{ 'on' : true, 'alias' : 'Many Glacier', 'url' : 'https://www.nps.gov/webcams-glac/mgcam.jpg' },
+{ 'on' : true, 'alias' : 'Lake McDonald', 'url' : 'https://www.nps.gov/webcams-glac/mcdcam2.jpg' },
+{ 'on' : true, 'alias' : 'Alpine VC', 'url' : 'https://www.nps.gov/webcams-romo/alpine_visitor_center.jpg' },
+{ 'on' : true, 'alias' : 'Longs Peak', 'url' : 'https://www.nps.gov/webcams-romo/longs_peak.jpg' },
+{ 'on' : true, 'alias' : 'Glacier Basin', 'url' : 'https://www.nps.gov/webcams-romo/glacier_basin.jpg' },
+{ 'on' : true, 'alias' : 'Hurricane Point', 'url' : 'https://www.nps.gov/webcams-olym/current_ridgecam.jpg' },
+{ 'on' : true, 'alias' : 'Lake Crescent', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/olymcam/olym.JPG' },
+{ 'on' : true, 'alias' : 'Point Reyes', 'url' : 'https://www.nature.nps.gov/air/WebCams/parks/porecam/porelarge.jpg' },
+{ 'on' : true, 'alias' : 'Yavapai Point', 'url' : 'https://www.nature.nps.gov/air/WebCams/parks/grcacam/grcalarge.jpg' },
+{ 'on' : true, 'alias' : 'Look Rock', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/grsmcam/grsmlarge.jpg' },
+{ 'on' : true, 'alias' : 'Purchase Knob', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/grsmpkcam/grpklarge.jpg' },
+{ 'on' : false, 'alias' : 'Denali', 'url' : 'https://www.nature.nps.gov/air/WebCams/parks/denacam/denalarge.jpg' },
+{ 'on' : true, 'alias' : 'Old Faithful', 'url' : 'https://www.nps.gov/webcams-yell/oldfaithvc.jpg' },
+{ 'on' : true, 'alias' : 'Electric Peak', 'url' : 'https://www.nps.gov/webcams-yell/mammoth3.jpg' },
+{ 'on' : true, 'alias' : 'Mt. Washburn NE', 'url' : 'https://www.nps.gov/webcams-yell/mtwashburn.jpg' },
+{ 'on' : true, 'alias' : 'Mt. Washburn S', 'url' : 'https://www.nps.gov/webcams-yell/washburn2.jpg' },
+{ 'on' : true, 'alias' : 'Grand Teton', 'url' : 'http://www.americanalpineclub.org.php56-21.dfw3-2.websitetestlink.com/images/gtcr_webcam/webcam.jpg' },
+{ 'on' : true, 'alias' : 'Kīlauea Caldera', 'url' : 'https://hvo.wr.usgs.gov/cams/KIcam/images/M.jpg' },
+{ 'on' : true, 'alias' : 'Haleakalā', 'url' : 'https://www.nps.gov/webcams-hale/HaleSummitCamCrater.jpg' },
+{ 'on' : true, 'alias' : 'Theodore Roosevelt', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/throcam/throlarge.jpg' },
+{ 'on' : true, 'alias' : 'North Cascades', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/nocacam/nocalarge.jpg' },
+{ 'on' : true, 'alias' : 'Joshua Tree', 'url' : 'https://www.nature.nps.gov/air/WebCams/parks/jotrcam/jotrlarge.jpg' },
+{ 'on' : true, 'alias' : 'Shenandoah', 'url' : 'https://www.nature.nps.gov/air/webcams/parks/shencam/shenlarge.jpg' },
+{ 'on' : true, 'alias' : 'Mt. Cleveland', 'url' : 'https://avo.alaska.edu/webcam/cleveland_clco.jpg' },
+{ 'on' : true, 'alias' : 'Mt. Redoubt', 'url' : 'https://avo.alaska.edu/webcam/redoubt.jpg' },
+{ 'on' : true, 'alias' : 'Mt. Spurr', 'url' : 'https://avo.alaska.edu/webcam/a-spurr.jpg' },
+{ 'on' : true, 'alias' : 'Talkeetna', 'url' : 'http://axis-accc8e55d948.axiscam.net:9080/axis-cgi/jpg/image.cgi' },
 { 'on' : true, 'alias' : 'Himawari', 'url' : 'http://rammb.cira.colostate.edu/ramsdis/online/images/latest_hi_res/himawari-8/full_disk_ahi_true_color.jpg' }
 ]
 //Testing images 
@@ -144,7 +139,8 @@ function doRefresh(jump)
   document.getElementById('additem_'+CURRENT_URL).style.color = 'black'
 
   if(jump===undefined) jump=1
-  
+ 
+  //TODO: if the first is disabled and a doRefresh(0) is called move to next 
   while(jump!=0){
     if(jump<0){
       nextIdx = CURRENT_URL - 1
@@ -161,7 +157,7 @@ function doRefresh(jump)
 
   console.log(ALL_URLS[CURRENT_URL].url)
   document.getElementById('additem_'+CURRENT_URL).style.color = 'blue'
-  document.getElementById('myIframe').src=ALL_URLS[CURRENT_URL].url
+  document.getElementById('myImg').src=ALL_URLS[CURRENT_URL].url
   //Append a unique query string to avoid cached image
   +"?"+String((new Date).getTime());
   //TODO: make time configurable
@@ -194,9 +190,9 @@ function addTextBox(alias, idx) {
   var text = document.createElement('div');
   text.onclick = function(){ toggleUrl(idx) }
   text.id = 'additem_' + idx;
-  //TODO: disable default checkbox functionality properly
   // disabling default checkbox behavior since the parent onclick will handle it
-  text.innerHTML = "<label for='test'><input type='checkbox' id='checkBox"+idx+"' checked=true onclick='this.checked=!this.checked'/>" + alias + "</label>"
+  checkedStr = ALL_URLS[idx].on?'checked':''
+  text.innerHTML = "<label for='test'><input type='checkbox' id='checkBox"+idx+"' onclick='this.checked=!this.checked' "+checkedStr+"/>" + alias + "</label>"
 
   addList.appendChild(text);
 }
@@ -212,7 +208,7 @@ function addInput(id) {
 
   var text = document.createElement('div');
   text.id = 'addUrl' + addid;
-  text.innerHTML = "<input type='text' value='' class='buckinput' name='items[]' style='padding:5px;' /> <a href='javascript:void(0);' onclick='alert("new")' id='addlink_" + addid + "'>add more</a>";
+  text.innerHTML = "<input type='text' value='' class='buckinput' name='items[]' style='padding:5px;' /> <a href='javascript:void(0);' onclick='alert('new')' id='addlink_" + addid + "'>add more</a>";
 
   addList.appendChild(text);
 }
