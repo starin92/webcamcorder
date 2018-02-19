@@ -10,11 +10,18 @@ The project is currently pure HTML/JavaScript you should be able to open the ind
 
 Project is deployed to GitHub Pages
 
+`url` : https://starin92.github.io/webcamcorder/
+
 ## Using the Webpage
 
 The page will cycle through the images automatically when openned
 
-To move to the next or previous image use the 'n' or 'p' keys or the next/previous buttons
-(buttons at the bottom of the page)
+### Manual interaction
+To move to the next or previous image use next/previous buttons (bottom of page)
 
 To edit which images are included in the loop edit the drop down at the bottom of the page
+
+### Keyboard shortcuts
+* `n` : move to next image
+* `p` : move to previous image
+* `d` : disable current image
