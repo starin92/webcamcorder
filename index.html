@@ -26,6 +26,11 @@ Refresh Seconds: <input id="secondsText" type="text" value="60">
 
 </body>
 <style>
+* {
+ font-size: 100%;
+ font-family: Arial;
+}
+
 .multiselect {
   width: 220px;
 }
@@ -140,7 +145,12 @@ function showCheckboxes() {
 }
 
 function setInterval(){
-  inputSeconds = document.getElementById('secondsText').value
+  inputStr = document.getElementById('secondsText').value
+  inputSeconds = parseInt(inputStr)
+  if(!Number.isInteger(inputSeconds)){
+    alert('Could not use "'+inputStr+'" as update, require integer seconds')
+    return
+  }
   if(INTERVAL_TIME != inputSeconds){
     INTERVAL_TIME = inputSeconds
   }
