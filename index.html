@@ -6,6 +6,9 @@
 <div>
 <button type="button" onclick="forceUrl(-1)">&lt</button>
 <button type="button" onclick="forceUrl(1)">&gt</button>
+<br>
+Refresh Seconds: <input id="secondsText" type="text" value="60">
+<button type="button" onclick="setInterval()">set</button>
 </div>
 
 <form>
@@ -114,6 +117,8 @@ var timeoutId;
 var expanded = false;
 
 // start point
+document.getElementById('secondsText').value = INTERVAL_TIME
+
 for(var idx in ALL_URLS){
   console.log(ALL_URLS[idx].url)
   addTextBox(ALL_URLS[idx].alias, idx)
@@ -132,6 +137,14 @@ function showCheckboxes() {
     checkboxes.style.display = "none";
     expanded = false;
   }
+}
+
+function setInterval(){
+  inputSeconds = document.getElementById('secondsText').value
+  if(INTERVAL_TIME != inputSeconds){
+    INTERVAL_TIME = inputSeconds
+  }
+  forceUrl(0)
 }
 
 function doRefresh(jump)
@@ -160,8 +173,7 @@ function doRefresh(jump)
   document.getElementById('myImg').src=ALL_URLS[CURRENT_URL].url
   //Append a unique query string to avoid cached image
   +"?"+String((new Date).getTime());
-  //TODO: make time configurable
-  //refresh agian in a minute
+  //refresh agian
   timeoutId = setTimeout( "doRefresh()", INTERVAL_TIME*1000);
 }
 
